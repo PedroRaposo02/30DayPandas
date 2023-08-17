@@ -1,15 +1,16 @@
-import pandas as pd 
- 
-def main(): 
-   test_df = pd.DataFrame(
-         {
-               "user_id": [1, 2, 3],
-               "name": ["aLiCe", "BOB", "charLie"],
-            }
-      )
-   fix_names(test_df)
+import pandas as pd
 
-   """
+
+def main():
+    test_df = pd.DataFrame(
+        {
+            "user_id": [1, 2, 3],
+            "name": ["aLiCe", "BOB", "charLie"],
+        }
+    )
+    fix_names(test_df)
+
+    """
 Table: Users
 
 +----------------+---------+
@@ -29,10 +30,11 @@ Return the result table ordered by user_id.
 The result format is in the following example.
 """
 
+
 def fix_names(users: pd.DataFrame) -> pd.DataFrame:
-   users['name'] = users['name'].str.capitalize()
-   return users.sort_values(by=['user_id'])
- 
-if __name__ == "__main__": 
-   main() 
- 
+    users["name"] = users["name"].str.capitalize()
+    return users.sort_values(by=["user_id"])
+
+
+if __name__ == "__main__":
+    main()

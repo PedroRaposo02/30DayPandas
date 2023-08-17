@@ -44,12 +44,15 @@ The result format is in the following example.
 
 
 def calculate_special_bonus(employees: pd.DataFrame) -> pd.DataFrame:
-    employees['bonus'] = 0;
-    
-    employees.loc[(employees['employee_id'] % 2 == 1) & (~employees['name'].str.startswith('M')),'bonus'] = employees['salary']
-    
-    result_df = employees[['employee_id', 'bonus']].sort_values(by=['employee_id'])
-    
+    employees["bonus"] = 0
+
+    employees.loc[
+        (employees["employee_id"] % 2 == 1) & (~employees["name"].str.startswith("M")),
+        "bonus",
+    ] = employees["salary"]
+
+    result_df = employees[["employee_id", "bonus"]].sort_values(by=["employee_id"])
+
     return result_df
 
 

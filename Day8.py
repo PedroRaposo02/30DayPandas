@@ -1,35 +1,45 @@
-import pandas as pd 
- 
-def main(): 
-   """Input: 
-Users table:
-+---------+-----------+-------------------------+
-| user_id | name      | mail                    |
-+---------+-----------+-------------------------+
-| 1       | Winston   | winston@leetcode.com    |
-| 2       | Jonathan  | jonathanisgreat         |
-| 3       | Annabelle | bella-@leetcode.com     |
-| 4       | Sally     | sally.come@leetcode.com |
-| 5       | Marwan    | quarz#2020@leetcode.com |
-| 6       | David     | david69@gmail.com       |
-| 7       | Shapiro   | .shapo@leetcode.com     |
-+---------+-----------+-------------------------+
-Output: 
-+---------+-----------+-------------------------+
-| user_id | name      | mail                    |
-+---------+-----------+-------------------------+
-| 1       | Winston   | winston@leetcode.com    |
-| 3       | Annabelle | bella-@leetcode.com     |
-| 4       | Sally     | sally.come@leetcode.com |
-+---------+-----------+-------------------------+
-   """
-   data = [[1, 'Winston', 'winston@leetcode.com'], [2, 'Jonathan', 'jonathanisgreat'], [3, 'Annabelle', 'bella-@leetcode.com'], [4, 'Sally', 'sally.come@leetcode.com'], [5, 'Marwan', 'quarz#2020@leetcode.com'], [6, 'David', 'david69@gmail.com'], [7, 'Shapiro', '.shapo@leetcode.com']]
-   Users = pd.DataFrame(data, columns=['user_id', 'name', 'mail']).astype({'user_id':'int64', 'name':'object', 'mail':'object'})
-   print(valid_emails(Users))
-   pass 
- 
+import pandas as pd
 
-   """
+
+def main():
+    """Input:
+    Users table:
+    +---------+-----------+-------------------------+
+    | user_id | name      | mail                    |
+    +---------+-----------+-------------------------+
+    | 1       | Winston   | winston@leetcode.com    |
+    | 2       | Jonathan  | jonathanisgreat         |
+    | 3       | Annabelle | bella-@leetcode.com     |
+    | 4       | Sally     | sally.come@leetcode.com |
+    | 5       | Marwan    | quarz#2020@leetcode.com |
+    | 6       | David     | david69@gmail.com       |
+    | 7       | Shapiro   | .shapo@leetcode.com     |
+    +---------+-----------+-------------------------+
+    Output:
+    +---------+-----------+-------------------------+
+    | user_id | name      | mail                    |
+    +---------+-----------+-------------------------+
+    | 1       | Winston   | winston@leetcode.com    |
+    | 3       | Annabelle | bella-@leetcode.com     |
+    | 4       | Sally     | sally.come@leetcode.com |
+    +---------+-----------+-------------------------+
+    """
+    data = [
+        [1, "Winston", "winston@leetcode.com"],
+        [2, "Jonathan", "jonathanisgreat"],
+        [3, "Annabelle", "bella-@leetcode.com"],
+        [4, "Sally", "sally.come@leetcode.com"],
+        [5, "Marwan", "quarz#2020@leetcode.com"],
+        [6, "David", "david69@gmail.com"],
+        [7, "Shapiro", ".shapo@leetcode.com"],
+    ]
+    Users = pd.DataFrame(data, columns=["user_id", "name", "mail"]).astype(
+        {"user_id": "int64", "name": "object", "mail": "object"}
+    )
+    print(valid_emails(Users))
+    pass
+
+    """
 Table: Users
 
 +---------------+---------+
@@ -53,12 +63,13 @@ Return the result table in any order.
 
 The result format is in the following example.
    """
-   
-def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
-   regex = r'^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$'
-   valid_users = users[users['mail'].str.fullmatch(regex)]
-   return valid_users.sort_values(by='user_id')
 
-if __name__ == "__main__": 
-   main() 
- 
+
+def valid_emails(users: pd.DataFrame) -> pd.DataFrame:
+    regex = r"^[a-zA-Z][a-zA-Z0-9_.-]*@leetcode\.com$"
+    valid_users = users[users["mail"].str.fullmatch(regex)]
+    return valid_users.sort_values(by="user_id")
+
+
+if __name__ == "__main__":
+    main()

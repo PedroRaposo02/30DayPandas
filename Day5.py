@@ -1,9 +1,10 @@
-import pandas as pd 
- 
-def main(): 
-   pass;
+import pandas as pd
 
-   """
+
+def main():
+    pass
+
+    """
 +----------------+---------+
 | Column Name    | Type    |
 +----------------+---------+
@@ -20,10 +21,11 @@ Return the result table in any order.
 The result format is in the following example.
    """
 
+
 def invalid_tweets(tweets: pd.DataFrame) -> pd.DataFrame:
-   result_df = tweets[tweets['content'].str.len() > 15][['tweet_id']]
-   return result_df
- 
-if __name__ == "__main__": 
-   main() 
- 
+    result_df = tweets[tweets["content"].str.len() > 15][["tweet_id"]]
+    return result_df
+
+
+if __name__ == "__main__":
+    main()

@@ -48,7 +48,7 @@ def main():
             ],
         }
     )
-    result = pd.DataFrame({"id": [4, 7]})
+    pd.DataFrame({"id": [4, 7]})
     print(article_views(table_views))
 
 
@@ -59,8 +59,9 @@ def article_views(views: pd.DataFrame) -> pd.DataFrame:
     own_article_viewer_df.drop_duplicates(inplace=True)
     own_article_viewer_df.rename(columns={"author_id": "id"}, inplace=True)
     own_article_viewer_df.sort_values(by=["id"], inplace=True)
-    
+
     return own_article_viewer_df
+
 
 if __name__ == "__main__":
     main()
